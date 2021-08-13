@@ -99,6 +99,15 @@ class benefit {
         $this->put();
     }
     /*
+    * Remove Child Value
+    */
+    public function rChildValue($item, $key, $value){
+        if(array_key_exists($key, $_SESSION['benefitCart'][$item])){
+            if($this->cChildValue($item, $key, $value)>1){ array_diff($_SESSION['benefitCart'][$item][$key], array($value); }
+        }
+        $this->put();
+    }
+    /*
     * Insert
     */
     public function insert($item, $quantity = 1){
