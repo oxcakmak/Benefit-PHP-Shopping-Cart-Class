@@ -2,6 +2,27 @@
 Benefit PHP Shopping Cart Class (Simple Lightweight)
 <hr>
 
+**[Initialization](#initialization)**  
+**[Get All](#get-all)**  
+**[Get Item](#get-item)**  
+**[Get Item Child](#get-item-child)**  
+**[Get Total Sum](#get-total-sum)**  
+**[Get Item Sum](#get-item-sum)**  
+**[Total Item Count](#total-item-count)**  
+**[Check Item](#check-item)**  
+**[Check Item Child](#check-item-child)**  
+**[Check Item Child Value](#check-item-child-value)**  
+**[clear](#clear)**  
+**[Remove](#remove)**  
+**[Remove Child](#remove-child)**  
+**[Remove Child Value](#remove-child-value)**  
+**[Insert](#insert)**  
+**[Field](#field)**  
+**[Update](#update)**  
+**[Increment](#increment)**  
+**[Decrement](#decrement)**  
+**[Put](#put)**  
+
 ### Initialization
 First you import the **benefit.php** file in your project
 
@@ -114,6 +135,7 @@ Adds the product to the basket
 ```php
 /*
 * The default quantity is 1
+* Specify variation with field before using insert function
 */
 $bcc->insert($item, $quantity);
 ```
