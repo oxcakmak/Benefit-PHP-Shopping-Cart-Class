@@ -68,6 +68,13 @@ class benefit {
         return @($_SESSION['benefitCart'][$item][$key])?count($_SESSION['benefitCart'][$item][$key]):false;
     }
     /*
+    * Check Item Child Value
+    */
+    public function cChildValue($item, $key, $value){
+       foreach($_SESSION['benefitCart'][$item][$key] as $child => $childValue){ if($childValue==$value){ return true; } }
+       return false;
+    }
+    /*
     * Clear
     */
     public function clear(){
