@@ -2,6 +2,7 @@
 Benefit PHP Shopping Cart Class (Simple Lightweight)
 <hr>
 
+### Table of Contents
 **[Initialization](#initialization)**  
 **[Get All](#get-all)**  
 **[Get Item](#get-item)**  
