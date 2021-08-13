@@ -71,8 +71,8 @@ class benefit {
     * Check Item Child Value
     */
     public function cChildValue($item, $key, $value){
-       foreach($_SESSION['benefitCart'][$item][$key] as $child => $childValue){ if($childValue==$value){ return true; } }
-       return false;
+       foreach($_SESSION['benefitCart'][$item][$key] as $child => $childValue){ if($childValue==$value){ return 1; } }
+       return 0;
     }
     /*
     * Clear
@@ -92,7 +92,7 @@ class benefit {
     /*
     * Remove Child
     */
-    public function rChild($item, $key, $value){
+    public function rChild($item, $key){
         if(array_key_exists($key, $_SESSION['benefitCart'][$item])){
             if($this->cChild($item, $key)>1){ unset($_SESSION['benefitCart'][$item][$key]); }else{ unset($_SESSION['benefitCart'][$item][$key]);}
         }
@@ -102,10 +102,11 @@ class benefit {
     * Remove Child Value
     */
     public function rChildValue($item, $key, $value){
-        if(array_key_exists($key, $_SESSION['benefitCart'][$item])){
-            if($this->cChildValue($item, $key, $value)>1){ array_diff($_SESSION['benefitCart'][$item][$key], array($value); }
+        if($bcc->cChildValue($item, $key, $value)){ 
+            $count = count($_SESSION['benefitCart'][$item][$key]) + 1;
+            for($i=1;$i<$count;$i++){ if($_SESSION['benefitCart'][$item][$key][$i]==$value){ unset($_SESSION['benefitCart'][$item][$key][$i]); } }
+            $bcc->put();
         }
-        $this->put();
     }
     /*
     * Insert
@@ -128,8 +129,8 @@ class benefit {
     /*
     * Update
     */
-    public function update($item, $cf = array()){
-        foreach($cf as $field => $key){ $_SESSION['benefitCart'][$item][$field] = $key; }
+    public function update($item, $key, $value){
+        $_SESSION['benefitCart'][$item][$key] = $value;
         $this->put();
     }
     /*
