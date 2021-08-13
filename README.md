@@ -20,6 +20,14 @@ $bcc = new benefit;
 getAll() command pulls all products added to cart
 ```php
 print_r($bcc->getAll());
+/* **OR** */
+foreach($bcc->getAll() as $key => $value){
+  /*
+  * $key = ProductID, hash, crc32
+  * $value = array in quantity, amount, cf (custom fields -size, color and type or gender (male, female, child))
+  * Usage: $value["quantity"], $value["price"], $value["color"] (array) 
+  */
+}
 ```
 
 ### Get Item
